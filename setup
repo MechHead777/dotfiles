@@ -15,7 +15,7 @@ set -euo pipefail
 # fi
 
 if ! command -v chezmoi >/dev/null; then
-  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:mechhead777/dotfiles.git
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:mechhead777/dotfiles
 fi
 
 exit 0
