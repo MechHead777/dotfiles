@@ -1,0 +1,393 @@
+workspace "brave"
+workspace "terminal"
+workspace "obsidian"
+
+// workspace "notion"
+// workspace "kubecraft"
+// workspace "ZTM"
+// workspace "trading"
+// workspace "brainrot6"
+// workspace "brainrot7"
+// workspace "8"
+
+spawn-at-startup "kitty"
+
+// spawn-at-startup "wlsunset -t 2000 -T 6500 -s 19:00 -S 07:00 -d 1800 -g 1.0" 
+
+spawn-sh-at-startup "wlsunset -t 2000 -T 6500 -s 19:00 -S 07:00 -d 1800 -g 1.0"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+
+
+
+
+// environment {
+//     XDG_CURRENT_DESKTOP "niri"
+//     MOZ_ENABLE_WAYLAND "1"
+//     QT_QPA_PLATFORM "wayland"
+//     ELECTRON_OZONE_PLATFORM_HINT "wayland" 
+// }
+
+///////////////////////////////////////////////////////////////////////////
+
+input {
+    keyboard {
+        xkb {
+        }
+
+        numlock
+    }
+
+    touchpad {
+        // off
+        tap
+        // dwt
+        // dwtp
+        // drag false
+        // drag-lock
+        natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+
+    mouse {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "no-scroll"
+    }
+
+    trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // middle-emulation
+    }
+
+    tablet {
+        // off
+        map-to-output "eDP-1"
+        // left-handed
+        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+    }
+
+    touch {
+        // off
+        map-to-output "eDP-1"
+        // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+    }
+
+     warp-mouse-to-focus
+     focus-follows-mouse max-scroll-amount="0%"
+}
+
+cursor {
+  xcursor-theme "breeze_cursors"
+  xcursor-size 150
+  hide-when-typing
+  hide-after-inactive-ms 500
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+/-output "HDMI-A-1" {
+    // Uncomment this line to disable this output.
+    // off
+    mode "1920x1080@144"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+//    background-color "#32302f" 
+//    backdrop-color "#3c3836"  
+    }
+
+/-output "DP-3" {
+    off
+    mode "3840x2160@60"
+    scale 1.5
+    transform "normal"
+//    position x=-960 y=1080
+//    background-color "#32302f"
+//    backdrop-color "#3c3836"  
+    }
+
+
+// run 'niri msg outputs' to see the compatible refresh rates'
+ output "DP-3" {
+    mode "3440x1440@174.963"
+    scale 1.0
+    transform "normal"
+    position x=0 y=0
+//    background-color "#32302f"
+//    backdrop-color "#3c3836"  
+    }
+
+
+
+/-output "DP-1" {
+    mode "2560x1440@60"
+    scale 1.0
+    transform "normal"
+    position x=-440 y=0
+//    background-color "#32302f"
+//    backdrop-color "#3c3836"  
+    }
+
+////////////////////////////////////////////////////////////////////////////////
+
+layout {
+    gaps 10
+    center-focused-column "never"
+    always-center-single-column
+    default-column-width { proportion 0.5; }
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+    }
+
+    focus-ring {
+        off
+        width 4
+        active-color "#7DAEA3"
+        inactive-color "#505050"
+    }
+
+    border {
+       // off
+        width 4
+        active-color "#7DAEA3"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+
+/-    tab-indicator {
+       // off
+       // hide-when-single-tab
+       // length
+       width 6
+       gap 2
+       gaps-between-tabs 8
+       place-within-column
+       active-color "#A9B665"
+       inactive-color "#EA6962"
+       corner-radius 10
+    }
+
+    shadow {
+        //  on
+        // draw-behind-window true
+        // Softness controls the shadow blur radius.
+        softness 30
+        // Spread expands the shadow.
+        spread 5
+        // Offset moves the shadow relative to the window.
+        offset x=0 y=5
+        // You can also change the shadow color and opacity.
+        color "#0007"
+    }
+
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+overview {
+     zoom 0.5
+     backdrop-color "#262626"
+     workspace-shadow {
+           //  off
+        softness 40
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+     }
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+animations {
+    // off
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Uncomment this line to ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
+// This option will also fix border/focus ring drawing behind some semitransparent windows.
+// After enabling or disabling this, you need to restart the apps for this to take effect.
+// prefer-no-csd
+
+///////////////////////////////////////////////////////////////////////////////
+
+ screenshot-path "~/screenshots/%Y-%m-%d_%H:%M:%S_niri.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+/-window-rule {
+    match is-active=false
+    opacity 0.85
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+hotkey-overlay {
+    skip-at-startup
+   // hide-not-bound
+}
+
+binds {
+
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+E { quit; }
+    Mod+Shift+P { power-off-monitors; }
+    Mod+W { close-window; }
+    Mod+O { toggle-overview; }
+    //Mod+O repeat=false { toggle-overview; }
+    
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+B hotkey-overlay-title="Open Web Browser: brave" { spawn "brave";}
+    Mod+V hotkey-overlay-title="Clipboard History" { spawn "/home/notbatman/.local/bin/cliphist-fuzzel-img";}
+ 
+    Mod+R { switch-preset-column-width; }
+    Mod+C { center-column; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Down  { focus-workspace-down; }
+    Mod+Up    { focus-workspace-up; }
+
+    Mod+Tab { focus-workspace-previous; }
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Down  { move-column-to-workspace-down; }
+    Mod+Shift+Up    { move-column-to-workspace-up; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+ 
+    Print       { screenshot; }
+    Mod+Print   { screenshot-screen; }
+    Shift+Print { screenshot-window; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    XF86MonBrightnessUp  { spawn "brightnessctl" "set" "+1%"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "1%-"; }
+
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioNext { spawn "playerctl" "next"; }
+    XF86AudioPrev { spawn "playerctl" "previous"; }
+
+
+    // The allow-inhibiting=false property can be applied to other binds as well,
+    // which ensures niri always processes them, even when an inhibitor is active.
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+}

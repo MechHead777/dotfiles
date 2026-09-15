@@ -1,0 +1,24 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# alias ls='ls --color=auto'
+alias ls='lsd'
+alias grep='grep --color=auto'
+# PS1='[\u@\h \W]\$ '
+
+export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
+eval "$(starship init bash)"
+
+# History
+HISTSIZE=-1
+HISTFILESIZE=-1
+HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+# Save each command immediately
+#PROMPT_COMMAND+=('history -a')
+PROMPT_COMMAND+=('history -a; history -n')

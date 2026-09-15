@@ -1,0 +1,32 @@
+#
+# ~/.zshrc
+#
+
+# Aliases
+alias ls='eza'
+alias grep='grep --color=auto'
+
+
+# Starship
+export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
+eval "$(starship init zsh)"
+
+
+# History
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Write commands to history immediately
+setopt INC_APPEND_HISTORY
+
+# Share history between running Zsh sessions
+setopt SHARE_HISTORY
+
+# Don't save consecutive duplicate commands
+setopt HIST_IGNORE_ALL_DUPS
+
+
+# fzf
+source <(fzf --zsh)
+
