@@ -1,0 +1,13 @@
+# Bootstrap mise only on machines that don't already have it
+# (Arch has it from pacman, the dev container from its Dockerfile).
+{{- if not (lookPath "mise") }}
+{{- $os := .chezmoi.os }}
+{{- if eq $os "darwin" }}{{ $os = "macos" }}{{ end }}
+{{- $arch := .chezmoi.arch }}
+{{- if eq $arch "amd64" }}{{ $arch = "x64" }}{{ end }}
+
+[".local/bin/mise"]
+type = "file"
+url = "https://mise.jdx.dev/mise-latest-{{ $os }}-{{ $arch }}"
+executable = true
+{{- end }}
