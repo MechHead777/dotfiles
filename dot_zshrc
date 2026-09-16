@@ -2,15 +2,21 @@
 # ~/.zshrc
 #
 
-# Aliases
-alias ls='eza'
-alias grep='grep --color=auto'
+# Point to mise packages
+eval "$(mise activate zsh)"
+eval "$(mise hook-env -s zsh)"
 
+export EDITOR=nvim
+export VISUAL=nvim
+export SUDO_EDITOR="$HOME/.local/share/mise/shims/nvim"
+
+# Aliases
+alias ls='eza --icons'
+alias grep='grep --color=auto'
 
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
 eval "$(starship init zsh)"
-
 
 # History
 HISTFILE="$HOME/.zsh_history"
@@ -25,7 +31,6 @@ setopt SHARE_HISTORY
 
 # Don't save consecutive duplicate commands
 setopt HIST_IGNORE_ALL_DUPS
-
 
 # fzf
 source <(fzf --zsh)

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Re-run whenever the tool list or lockfile changes:
+# config.toml: {{ include "dot_config/mise/config.toml" | sha256sum }}
+{{- if stat (joinPath .chezmoi.sourceDir "dot_config/mise/mise.lock") }}
+# mise.lock:   {{ include "dot_config/mise/mise.lock" | sha256sum }}
+{{- end }}
+
+set -euo pipefail
+
+mise_bin="$(command -v mise || echo "$HOME/.local/bin/mise")"
+
+if [[ ! -x "$mise_bin" ]]; then
+  echo "mise not found; skipping tool install" >&2
+  exit 0
+fi
+
+"$mise_bin" install
