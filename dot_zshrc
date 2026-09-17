@@ -11,7 +11,7 @@ export VISUAL=nvim
 export SUDO_EDITOR="$HOME/.local/share/mise/shims/nvim"
 
 # Aliases
-alias ls='eza --icons'
+command -v eza >/dev/null && alias ls='eza --icons=auto'
 alias grep='grep --color=auto'
 
 # Starship

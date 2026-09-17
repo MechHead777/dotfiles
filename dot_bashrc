@@ -17,8 +17,7 @@ if command -v mise >/dev/null; then
   eval "$(mise hook-env -s bash)"
 fi
 
-# alias ls='ls --color=auto'
-alias ls='eza --icons'
+command -v eza >/dev/null && alias ls='eza --icons=auto'
 alias grep='grep --color=auto'
 # PS1='[\u@\h \W]\$ '
 
