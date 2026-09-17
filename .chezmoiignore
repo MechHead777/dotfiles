@@ -1,0 +1,12 @@
+# Repo files that should never be copied into ~
+README.md
+setup
+
+# Desktop-only configs: skip on macOS, WSL and inside containers
+{{- $wsl := and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- $container := or (stat "/.dockerenv") (stat "/run/.containerenv") }}
+{{- $desktop := and (eq .chezmoi.os "linux") (not $wsl) (not $container) }}
+{{- if not $desktop }}
+.config/niri
+.config/fuzzel
+{{- end }}
