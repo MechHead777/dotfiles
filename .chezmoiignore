@@ -9,4 +9,5 @@ setup
 {{- if not $desktop }}
 .config/niri
 .config/fuzzel
+.local/bin/cliphist-fuzzel-img
 {{- end }}

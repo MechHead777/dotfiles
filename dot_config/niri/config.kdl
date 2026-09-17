@@ -331,7 +331,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Open Web Browser: brave" { spawn "brave";}
-    Mod+V hotkey-overlay-title="Clipboard History" { spawn "/home/notbatman/.local/bin/cliphist-fuzzel-img";}
+    Mod+V hotkey-overlay-title="Clipboard History" { spawn "~/.local/bin/cliphist-fuzzel-img"; }
  
     Mod+R { switch-preset-column-width; }
     Mod+C { center-column; }
