@@ -8,10 +8,33 @@ eza = "latest"
 fastfetch = "latest"
 fd = "latest"
 fzf = "latest"
+lazygit = "latest"
 neovim = "latest"
+node = "lts" # Mason language servers
 ripgrep = "latest"
 starship = "latest"
 tealdeer = "latest"
 tmux = "latest"
+tree-sitter = "latest"
 yazi = "latest"
 zoxide = "latest"
+
+
+# ── Candidates (uncomment to install) ────────────────────────────
+# Global QoL
+# github-cli = "latest"   # gh: PRs, releases, Actions logs
+# jq = "latest"           # JSON: APIs, kubectl -o json, terraform output
+# shellcheck = "latest"   # bash linting; LazyVim uses it for diagnostics
+# shfmt = "latest"        # shell formatter; pairs with conform.nvim
+# uv = "latest"           # Python tooling in every container
+# yq = "latest"           # YAML: Helm values, Flux, GH Actions
+
+# Optional
+# actionlint = "latest"   # GH Actions linter; maybe per-project instead
+# delta = "latest"        # git diff pager; needs core.pager in a tracked gitconfig
+# dust = "latest"         # clearer du
+# k3d = "latest"          # k3s in Docker; local clusters
+# k9s = "latest"          # Kubernetes TUI; adapts to any cluster
+
+# Per-project mise.toml, not here
+# flux2, helm, kubectl, terraform
