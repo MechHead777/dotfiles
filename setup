@@ -1,0 +1,22 @@
+#!/bin/sh
+# DevPod entry point: apply this repo with chezmoi, unattended.
+set -eu
+
+src="$(cd "$(dirname "$0")" && pwd)"
+dest="$HOME/.local/share/chezmoi"
+
+# Point chezmoi's default source dir at this clone so later
+# `chezmoi apply`/`chezmoi cd` work without --source.
+if [ ! -e "$dest" ]; then
+  mkdir -p "$(dirname "$dest")"
+  ln -s "$src" "$dest"
+fi
+
+# Install chezmoi if missing. Download first so a failed curl stops the script.
+if ! command -v chezmoi >/dev/null; then
+  installer="$(curl -fsLS get.chezmoi.io)"
+  sh -c "$installer" -- -b "$HOME/.local/bin"
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+exec chezmoi init --apply --no-tty
