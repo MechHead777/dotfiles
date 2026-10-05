@@ -24,7 +24,7 @@ zoxide = "latest"
 # Global QoL
 # github-cli = "latest"   # gh: PRs, releases, Actions logs
 # jq = "latest"           # JSON: APIs, kubectl -o json, terraform output
-# shellcheck = "latest"   # bash linting; LazyVim uses it for diagnostics
+shellcheck = "latest"   # bash linting; LazyVim uses it for diagnostics
 # shfmt = "latest"        # shell formatter; pairs with conform.nvim
 # uv = "latest"           # Python tooling in every container
 # yq = "latest"           # YAML: Helm values, Flux, GH Actions
