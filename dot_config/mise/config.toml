@@ -22,7 +22,7 @@ zoxide = "latest"
 
 # ── Candidates (uncomment to install) ────────────────────────────
 # Global QoL
-# github-cli = "latest"   # gh: PRs, releases, Actions logs
+github-cli = "latest"   # gh: PRs, releases, Actions logs
 # jq = "latest"           # JSON: APIs, kubectl -o json, terraform output
 shellcheck = "latest"   # bash linting; LazyVim uses it for diagnostics
 # shfmt = "latest"        # shell formatter; pairs with conform.nvim
