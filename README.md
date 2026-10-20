@@ -8,14 +8,14 @@ This repo is one of three that set up my environment from scratch:
 
 - dotfiles (this repo): shell, editor, and CLI tools, used on Arch, macOS, WSL, and inside containers
 - [dev-container-playground](https://github.com/MechHead777/dev-container-playground): project environments with DevPod, which applies this repo inside each container
-- arch-bootstrap (planned): Arch install, pacman packages, system services, then this repo and DevPod setup
+- [arch-bootstrap](https://github.com/MechHead777/arch-bootstrap): Arch install, pacman packages, system services, then this repo and DevPod setup
 
 ## What's Included
 
 | Area | Files |
 |---|---|
 | Shells | `.zshrc`, `.bashrc` (mise activation, starship, zoxide, fzf, aliases) |
-| CLI tools | `.config/mise/config.toml` (installed per user by mise) |
+| CLI tools | `.config/mise/config.toml` (installed per user by mise, including GitHub CLI) |
 | Prompt | `.config/starship/config.toml` (two-line prompt) |
 | Editor | `.config/nvim` (LazyVim, with plugin versions pinned in `lazy-lock.json`) |
 | Terminal | `.config/kitty`, `.config/tmux`, `.config/yazi`, `.config/bat` |
@@ -28,6 +28,8 @@ This repo is one of three that set up my environment from scratch:
 Your terminal needs a [Nerd Font](https://www.nerdfonts.com/) for the eza and starship icons to show up.
 
 ## Arch
+
+For a full workstation setup, follow [arch-bootstrap](https://github.com/MechHead777/arch-bootstrap#install). It installs the system packages, applies this repo, and configures DevPod. The commands below apply only the dotfiles to an existing Arch installation.
 
 First, install git and mise: `sudo pacman -S --needed git mise`
 
@@ -57,7 +59,7 @@ After it's finished, start a new shell: `exec zsh`
 
 ## DevPod
 
-Point DevPod at this repo and its setup script:
+The Arch bootstrap configures these dotfiles options. For other machines, or a manual setup, point DevPod at this repo and its setup script:
 
 ```sh
 devpod context set-options \
