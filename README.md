@@ -6,9 +6,9 @@ My shell, editor, and CLI tool setup, managed with [chezmoi](https://www.chezmoi
 
 This repo is one of three that set up my environment from scratch:
 
+- [arch-bootstrap](https://github.com/MechHead777/arch-bootstrap): Arch install, pacman packages, system services, then this repo and DevPod setup
 - dotfiles (this repo): shell, editor, and CLI tools, used on Arch, macOS, WSL, and inside containers
 - [dev-container-playground](https://github.com/MechHead777/dev-container-playground): project environments with DevPod, which applies this repo inside each container
-- [arch-bootstrap](https://github.com/MechHead777/arch-bootstrap): Arch install, pacman packages, system services, then this repo and DevPod setup
 
 ## What's Included
 
