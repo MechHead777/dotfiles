@@ -17,7 +17,7 @@ spawn-at-startup "kitty"
 spawn-sh-at-startup "wlsunset -t 2000 -T 6500 -s 19:00 -S 07:00 -d 1800 -g 1.0"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-
+spawn-at-startup "udiskie" "--no-automount"
 
 
 
@@ -328,9 +328,10 @@ binds {
     Mod+O { toggle-overview; }
     //Mod+O repeat=false { toggle-overview; }
     
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+V hotkey-overlay-title="Clipboard History" { spawn "~/.local/bin/cliphist-fuzzel-img"; }
+    Mod+Return hotkey-overlay-title="Open the terminal: kitty" { spawn "kitty"; }
+    Mod+Space hotkey-overlay-title="Open launch menu: fuzzel" { spawn "fuzzel"; }
+    Mod+B hotkey-overlay-title="Open web browser: librewolf" { spawn "librewolf"; }
+    Mod+V hotkey-overlay-title="Open clipboard history: cliphist" { spawn "~/.local/bin/cliphist-fuzzel-img"; }
  
     Mod+R { switch-preset-column-width; }
     Mod+C { center-column; }
@@ -372,8 +373,8 @@ binds {
     Mod+Print   { screenshot-screen; }
     Shift+Print { screenshot-window; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
