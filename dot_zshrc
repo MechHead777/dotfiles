@@ -32,6 +32,10 @@ setopt SHARE_HISTORY
 # Don't save consecutive duplicate commands
 setopt HIST_IGNORE_ALL_DUPS
 
+# Tab completion
+autoload -Uz compinit
+compinit
+
 # fzf
 source <(fzf --zsh)
 

@@ -33,3 +33,8 @@ shopt -s histappend
 # Save each command immediately
 #PROMPT_COMMAND+=('history -a')
 PROMPT_COMMAND+=('history -a; history -n')
+
+# fzf
+if command -v fzf >/dev/null; then
+  source <(fzf --bash)
+fi

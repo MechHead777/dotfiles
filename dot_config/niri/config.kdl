@@ -1,18 +1,8 @@
-workspace "brave"
-workspace "terminal"
-workspace "obsidian"
-
-// workspace "notion"
-// workspace "kubecraft"
-// workspace "ZTM"
-// workspace "trading"
-// workspace "brainrot6"
-// workspace "brainrot7"
-// workspace "8"
+workspace "1"
+workspace "2"
+workspace "3"
 
 spawn-at-startup "kitty"
-
-// spawn-at-startup "wlsunset -t 2000 -T 6500 -s 19:00 -S 07:00 -d 1800 -g 1.0" 
 
 spawn-sh-at-startup "wlsunset -t 2000 -T 6500 -s 19:00 -S 07:00 -d 1800 -g 1.0"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
@@ -96,6 +86,15 @@ cursor {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+// run 'niri msg outputs' to see the compatible refresh rates'
+
+output "eDP-1" {
+  mode "2256x1504@59.999"
+  scale 1.5
+  transform "normal"
+  }
+
+
 /-output "HDMI-A-1" {
     // Uncomment this line to disable this output.
     // off
@@ -117,9 +116,8 @@ cursor {
 //    backdrop-color "#3c3836"  
     }
 
-
-// run 'niri msg outputs' to see the compatible refresh rates'
- output "DP-3" {
+/-output "DP-3" {
+    off
     mode "3440x1440@174.963"
     scale 1.0
     transform "normal"
@@ -128,9 +126,8 @@ cursor {
 //    backdrop-color "#3c3836"  
     }
 
-
-
 /-output "DP-1" {
+    off
     mode "2560x1440@60"
     scale 1.0
     transform "normal"
